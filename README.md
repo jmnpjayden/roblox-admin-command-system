@@ -31,3 +31,19 @@ A modular admin command system built in Lua for Roblox, designed to manage game 
 - Event-driven architecture using RemoteEvents
 - Input validation for all commands
 - Separation between UI, logic, and data handling
+
+# | Why This Project?
+Admin command systems are essential in Roblox game development, allowing developers and moderators to control gameplay, manage players, and trigger live events.
+
+This project demonstrates:
+- System design and modular architecture
+- Event-driven programming
+- Real-time client-server interaction
+- Scalable command handling
+
+# | Architecture Overview
+- Commands stored in a table for dynamic execution
+- Chat listener parses prefix-based input (`;`)
+- Player lookup system supports partial usernames
+- RemoteEvents used for client-server communication
+- TweenService used for UI transitions
