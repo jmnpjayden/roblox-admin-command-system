@@ -29,6 +29,22 @@ function module.adminJoined(player)
 	
 end
 
+--//Helper Function
+function module.findPlayer(partialName)
+	partialName = tostring(partialName or "")
+	if partialName == "" then return nil end
+
+	local players = game.Players:GetPlayers()
+	for _, player in ipairs(players) do
+		if player and player.Name then
+			if player.Name:lower():sub(1, #partialName) == partialName:lower() then
+				return player
+			end
+		end
+	end
+	return nil
+end
+
 function module.adminCommands(player)
 	--Variables
 	local prefix = ';'
@@ -144,14 +160,8 @@ function module.adminCommands(player)
 			-- Check if both username and Ryo amount are provided
 			if targetUsername and ryoAmount then
 				print("Username and Ryo amount provided")
-				-- Find the player based on the partial username
-				local targetPlayer = nil
-				for _, player in ipairs(game.Players:GetPlayers()) do
-					if player.Name:lower():sub(1, #targetUsername) == targetUsername:lower() then
-						targetPlayer = player
-						break
-					end
-				end
+				-- Find the player based on the partial username using helper function
+				local targetPlayer = module.findPlayer(targetUsername)
 
 				-- Check if the target player is found
 				if targetPlayer then
@@ -190,14 +200,8 @@ function module.adminCommands(player)
 			-- Check if both username and skill points  are provided
 			if targetUsername and skillPointsAmt then
 				print("Username and Skill Points amount provided")
-				-- Find the player based on the partial username
-				local targetPlayer = nil
-				for _, player in ipairs(game.Players:GetPlayers()) do
-					if player.Name:lower():sub(1, #targetUsername) == targetUsername:lower() then
-						targetPlayer = player
-						break
-					end
-				end
+				-- Find the player based on the partial username using helper function
+				local targetPlayer = module.findPlayer(targetUsername)
 
 				-- Check if the target player is found
 				if targetPlayer then
@@ -241,14 +245,8 @@ function module.adminCommands(player)
 				
 				if gender == "male" or gender == "female" then
 					gender = gender:sub(1,1):upper() .. gender:sub(2)
-					-- Find the player based on the partial username
-					local targetPlayer = nil
-					for _, player in ipairs(game.Players:GetPlayers()) do
-						if player.Name:lower():sub(1, #username) == username:lower() then
-							targetPlayer = player
-							break
-						end
-					end
+					-- Find the player based on the partial username using helper function
+					local targetPlayer = module.findPlayer(username)
 
 					-- Check if the target player is found
 					if targetPlayer then
@@ -311,14 +309,8 @@ function module.adminCommands(player)
 				village = village:lower():gsub("^%l", string.upper)
 				-- Check if the village is valid
 				if table.find(validVillages, village) then
-					-- Find the player based on the partial username
-					local targetPlayer = nil
-					for _, player in ipairs(game.Players:GetPlayers()) do
-						if player.Name:lower():sub(1, #username) == username:lower() then
-							targetPlayer = player
-							break
-						end
-					end
+					-- Find the player based on the partial username using helper function
+					local targetPlayer = module.findPlayer(username)
 
 					-- Check if the target player is found
 					if targetPlayer then
@@ -400,14 +392,8 @@ function module.adminCommands(player)
 				-- Check if rankNumber is within the valid range
 				if rankNumber and rankNumber >= 0 and rankNumber <= 24 then
 					print("Valid rank number:", rankNumber)
-					-- Find the player based on the partial username
-					local targetPlayer = nil
-					for _, player in ipairs(game.Players:GetPlayers()) do
-						if player.Name:lower():sub(1, #targetUsername) == targetUsername:lower() then
-							targetPlayer = player
-							break
-						end
-					end
+					-- Find the player based on the partial username using helper function
+					local targetPlayer = module.findPlayer(targetUsername)
 
 					-- Check if the target player is found
 					if targetPlayer then
@@ -471,14 +457,8 @@ function module.adminCommands(player)
 				-- Check if title is a number
 				local rankNum = tonumber(title)
 				if rankNum and rankNames[rankNum] then
-					-- Find the player based on the partial username
-					local targetPlayer = nil
-					for _, player in ipairs(game.Players:GetPlayers()) do
-						if player.Name:lower():sub(1, #username) == username:lower() then
-							targetPlayer = player
-							break
-						end
-					end
+					-- Find the player based on the partial username using helper function
+					local targetPlayer = module.findPlayer(username)
 
 					-- Check if the target player is found
 					if targetPlayer then
