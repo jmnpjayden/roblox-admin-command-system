@@ -1,14 +1,23 @@
-# A fast, small, safe, gradually typed embeddable scripting language derived from Lua
-#
-# https://github.com/luau-lang/luau
-# https://luau.org/
+# Git ignore for Roblox Lua project (admin command system)
 
-# Code coverage
+# Luau / Project-specific
+# -----------------------------
 coverage.out
-
-# Profiling
 profile.out
 profile.svg
-
-# Time trace
 trace.json
+
+# OS files (VERY important)
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# Logs
+# -----------------------------
+*.log
+
+# Temporary / backup files
+# -----------------------------
+*.tmp
+*.bak
+*.swp
