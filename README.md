@@ -1,3 +1,6 @@
+# | Demo
+https://youtu.be/U9_097GbTu0
+
 # Roblox Admin Command System
 A modular admin command system built in Lua for Roblox, designed to manage game states, player data, and custom administrative controls in real time. 
 
@@ -26,6 +29,3 @@ A modular admin command system built in Lua for Roblox, designed to manage game 
 - Event-driven architecture using RemoteEvents
 - Input validation for all commands
 - Separation between UI, logic, and data handling
-
-# | Demo
-https://youtu.be/U9_097GbTu0
